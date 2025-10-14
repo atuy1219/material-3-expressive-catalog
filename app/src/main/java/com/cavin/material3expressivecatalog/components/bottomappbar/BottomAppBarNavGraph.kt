@@ -47,4 +47,9 @@ fun EntryProviderBuilder<NavKey>.bottomAppBarNavGraph(backStack: NavBackStack) {
     entry<BottomApBarRoutes.Variant4Route> {
         BottomAppBarVariant4()
     }
+    entry<BottomApBarRoutes.DockedExpressiveFAB> {
+        BottomAppBarExpressiveFAB(
+            onNavigateBack = { backStack.removeLastOrNull() }
+        )
+    }
 }

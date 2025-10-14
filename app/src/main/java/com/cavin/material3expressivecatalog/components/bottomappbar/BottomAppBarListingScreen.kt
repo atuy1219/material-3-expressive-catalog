@@ -125,6 +125,14 @@ fun BottomAppBarListingScreen(
                 title = "Variant 4",
                 description = "Another Bottom App Bar layout",
             )
+
+            ListTile(
+                onClick = {
+                    onNavigateToExample(BottomApBarRoutes.DockedExpressiveFAB)
+                },
+                title = "Expressive Docked FAB",
+                description = "Docked bar with a custom-shaped, bouncy FAB.",
+            )
             Spacer(Modifier.height(16.dp))
         }
     }

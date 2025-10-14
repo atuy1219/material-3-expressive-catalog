@@ -80,6 +80,9 @@ sealed interface BottomApBarRoutes :
 
     @Serializable
     data object Variant4Route : NavKey, BottomApBarRoutes
+
+    @Serializable
+    data object DockedExpressiveFAB : NavKey, BottomApBarRoutes
 }
 
 sealed interface FloatingToolBarRoutes :
