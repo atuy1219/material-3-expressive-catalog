@@ -20,12 +20,14 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation.NavController
 import androidx.navigation3.runtime.entry
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSavedStateNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.navigation3.ui.rememberSceneSetupNavEntryDecorator
+import com.cavin.material3expressivecatalog.PremiumSplashScreen
 import com.cavin.material3expressivecatalog.components.bottomappbar.bottomAppBarNavGraph
 import com.cavin.material3expressivecatalog.components.buttongroup.groupButtonNavGraph
 import com.cavin.material3expressivecatalog.components.buttons.buttonNavGraph
@@ -41,7 +43,8 @@ import com.cavin.material3expressivecatalog.home.HomeScreen
 
 @Composable
 fun AppNavigation() {
-    val backStack = rememberNavBackStack(Routes.HomeRoute)
+    val backStack = rememberNavBackStack(Routes.SplashRoute)
+
 
     NavDisplay(
         entryDecorators =
@@ -70,6 +73,16 @@ fun AppNavigation() {
         },
         entryProvider =
         entryProvider {
+            entry<Routes.SplashRoute> {
+                PremiumSplashScreen(
+                    onSplashFinished = {
+                        backStack.removeLastOrNull()
+                        backStack.add(Routes.HomeRoute)
+                    }
+                )
+            }
+
+
             entry<Routes.HomeRoute> {
                 HomeScreen(
                     onNavigateToButtonGroup = { backStack.add(ButtonGroupRoutes.ListingRoute) },

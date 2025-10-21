@@ -21,6 +21,10 @@ import kotlinx.serialization.Serializable
 sealed interface Routes {
     @Serializable
     data object HomeRoute : NavKey, Routes
+
+    @Serializable
+    data object SplashRoute : NavKey, Routes
+
 }
 
 sealed interface ButtonGroupRoutes :
